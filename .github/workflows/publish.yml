@@ -1,0 +1,22 @@
+# Publishes to npm when a release is published. No token: npm trusts this
+# workflow in this repository (trusted publishing), and adds provenance.
+name: Publish to npm
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org"
+      - run: npm install -g npm@latest
+      - run: node --test test/client.test.mjs
+      - run: npm publish --access public

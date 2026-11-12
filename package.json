@@ -1,0 +1,24 @@
+{
+  "name": "klinelens",
+  "version": "0.1.0",
+  "description": "JavaScript client for the K-Line Lens API: Bitcoin order flow, liquidations, large trades, the order book and derivatives.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "files": ["src", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "sideEffects": false,
+  "scripts": { "test": "node --test test/client.test.mjs" },
+  "keywords": ["bitcoin", "order flow", "liquidations", "cvd", "crypto", "market data", "api", "klinelens"],
+  "author": "K-Line Lens <support@klinelens.com>",
+  "license": "MIT",
+  "homepage": "https://klinelens.com/api",
+  "repository": { "type": "git", "url": "git+https://github.com/klinelens/klinelens-js.git" },
+  "bugs": { "email": "support@klinelens.com" }
+}
