@@ -1,5 +1,6 @@
-# Publishes to npm when a release is published. No token: npm trusts this
-# workflow in this repository (trusted publishing), and adds provenance.
+# Stages a release on npm when a GitHub release is published. No token: npm
+# trusts this workflow in this repository (trusted publishing). A staged
+# version goes live only once the owner approves it with two-factor.
 name: Publish to npm
 on:
   release:
@@ -19,4 +20,4 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - run: npm install -g npm@latest
       - run: node --test test/client.test.mjs
-      - run: npm publish --access public
+      - run: npm stage publish --access public
